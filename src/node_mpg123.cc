@@ -405,26 +405,6 @@ void node_mpg123_id3_after (uv_work_t *req) {
   }
 }
 
-NAN_METHOD(node_mpg123_get_volume) {
-  UNWRAP_MH;
-
-  double base, really, rva_db;
-  int ret = mpg123_getvolume(mh, &base, &really, &rva_db);
-  if(ret == MPG123_OK) {
-    NanReturnValue(NanNew<Number>(really));
-  }
-  NanReturnUndefined();
-}
-
-NAN_METHOD(node_mpg123_set_volume) {
-  UNWRAP_MH;
-  double volume = (double) args[1]->NumberValue();
-  int ret = mpg123_volume(mh, volume);
-  if(ret == MPG123_OK) {
-    NanReturnValue(NanNew<Number>(1));
-  }
-  NanReturnUndefined();
-}
 
 void InitMPG123(Handle<Object> target) {
   NanScope();
@@ -534,8 +514,6 @@ void InitMPG123(Handle<Object> target) {
   NODE_SET_METHOD(target, "mpg123_feed", node_mpg123_feed);
   NODE_SET_METHOD(target, "mpg123_read", node_mpg123_read);
   NODE_SET_METHOD(target, "mpg123_id3", node_mpg123_id3);
-  NODE_SET_METHOD(target, "mpg123_get_volume", node_mpg123_get_volume);
-  NODE_SET_METHOD(target, "mpg123_set_volume", node_mpg123_set_volume);
 }
 
 } // nodelame namespace
