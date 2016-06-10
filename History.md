@@ -1,4 +1,19 @@
 
+1.2.3 / 2015-09-08
+==================
+
+  * add config files for freebsd (#55, @antxxxx)
+  * package: add "license" property (#54, @TimothyGu)
+  * package: upgrade "nan" to v2.x (#57, @FlatIO)
+  * travis: implement `sudo: false`
+
+1.2.2 / 2015-05-01
+==================
+
+  * encoder: fix encoder memory leak (#49, @gierschv)
+  * README: fix example syntax (#48, @gierschv)
+  * package: update "nan" to v1.8.4
+
 1.2.1 / 2015-04-09
 ==================
 
